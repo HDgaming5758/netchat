@@ -89,7 +89,7 @@ if %over% gtr %lver% (
 	echo rmdir bin>> update.bat
 	echo move netchat-master\*.*>> update.bat
 	echo move netchat-master\bin>> update.bat
-	echo del -s netchat-master>> update.bat
+	echo del netchat-master -s>> update.bat
 	echo rmdel netchat-master/bin>> update.bat
 	echo rmdel netchat-master>> update.bat
 	echo call NetChat.bat>> update.bat
@@ -150,4 +150,4 @@ echo.
 echo Port : [ %PORT% ]
 echo.
 echo MDP : [ %mdpac% ]
-rem ok
+rem up
