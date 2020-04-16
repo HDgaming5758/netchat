@@ -91,10 +91,9 @@ if %over% gtr %lver% (
 	echo move netchat-master\*.*>> update.bat
 	echo move netchat-master\bin>> update.bat
 	echo del netchat-master -s>> update.bat
-	echo del netchat-master\bin -s>> update.bat
-	echo rmdir netchat-master\bin>> update.bat
-	echo rmdir netchat-master>> update.bat
-	echo call NetChat.bat>> update.bat
+	echo rmdel netchat-master/bin>> update.bat
+	echo rmdel netchat-master>> update.bat
+	echo call NetChat.bat & del update.bat>> update.bat
 	call update.bat
 )
 :listen
