@@ -1,6 +1,7 @@
 @echo off
 set IP=non
 set PORT=non
+set lver=0.1
 :M
 title NetChat
 cls
@@ -70,7 +71,24 @@ cls
 echo.
 type logo.txt
 echo.
-echo Verification des mise a joure
+echo Verification des mise a joure : 
+echo.
+bin\wget https://github.com/HDgaming5758/netchat/archive/master.zip > nul
+echo.
+bin\unzip master.zip
+echo.
+set /p over=< netchat-master\ver
+echo.
+if %over% gtr %lver% (
+	echo @echo off> update.bat
+	echo title Mise a jour>> update.bat
+	echo del -s logo.txt NetChat.bat>> update.bat
+	echo rmdir bin>> update.bat
+	echo move netchat-master\*.*>> update.bat
+	echo move netchat-master\bin>> update.bat
+	echo call NetChat.bat>> update.bat
+	pause
+)
 :listen
 cls
 echo.
