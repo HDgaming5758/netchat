@@ -84,6 +84,7 @@ del -s master.zip
 echo.
 if %over% gtr %lver% (
 	echo @echo off> update.bat
+	echo cls> update.bat
 	echo title Mise a jour>> update.bat
 	echo del -s logo.txt NetChat.bat>> update.bat
 	echo rmdir bin>> update.bat
