@@ -73,11 +73,13 @@ type logo.txt
 echo.
 echo Verification des mise a joure : 
 echo.
+if exist master.zip del -s master.zip
+if exist netchat-master rmdir netchat-master 
 bin\wget https://github.com/HDgaming5758/netchat/archive/master.zip > nul
 echo.
 bin\unzip master.zip
 echo.
-set /p over=< netchat-master\ver
+set /p over=< netchat-master\ver | del -s master.zip
 echo.
 if %over% gtr %lver% (
 	echo @echo off> update.bat
@@ -86,8 +88,9 @@ if %over% gtr %lver% (
 	echo rmdir bin>> update.bat
 	echo move netchat-master\*.*>> update.bat
 	echo move netchat-master\bin>> update.bat
+	echo del -s netchat-master>> update.bat
 	echo call NetChat.bat>> update.bat
-	pause
+	call update.bat
 )
 :listen
 cls
@@ -144,3 +147,4 @@ echo.
 echo Port : [ %PORT% ]
 echo.
 echo MDP : [ %mdpac% ]
+REM ok
