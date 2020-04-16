@@ -79,7 +79,8 @@ bin\wget https://github.com/HDgaming5758/netchat/archive/master.zip > nul
 echo.
 bin\unzip master.zip
 echo.
-set /p over=< netchat-master\ver | del -s master.zip
+set /p over=< netchat-master\ver
+del -s master.zip
 echo.
 if %over% gtr %lver% (
 	echo @echo off> update.bat
@@ -89,6 +90,8 @@ if %over% gtr %lver% (
 	echo move netchat-master\*.*>> update.bat
 	echo move netchat-master\bin>> update.bat
 	echo del -s netchat-master>> update.bat
+	echo rmdel netchat-master/bin>> update.bat
+	echo rmdel netchat-master>> update.bat
 	echo call NetChat.bat>> update.bat
 	call update.bat
 )
@@ -147,4 +150,4 @@ echo.
 echo Port : [ %PORT% ]
 echo.
 echo MDP : [ %mdpac% ]
-REM ok
+rem ok
